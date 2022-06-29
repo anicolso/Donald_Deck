@@ -1,0 +1,2 @@
+=== donalddeck Config Vars
+DATABASE_URL: postgres://fgmfubbkmtdpum:d06a9ffad695ba78675dc014797561a7909ec973462fe20ff5a5705ec9c5c366@ec2-184-73-232-93.compute-1.amazonaws.com:5432/d1m0c1mea75pvn

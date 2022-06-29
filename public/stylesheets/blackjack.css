@@ -1,0 +1,751 @@
+body {
+    background-color: #FDFDF9;
+    margin: 0px;
+}
+
+html, body {
+    height: 100%;
+}
+
+div#solocontainer {
+    position: relative;
+    margin-top: 1%;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: solid;
+    border-color: #594236;
+    background-color: #57A545;
+    height: 90%;
+    width: 98%;
+}
+
+p#Dealer {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    visibility: hidden;
+}
+
+p#Player {
+    position: absolute;
+    left: 50%;
+    top: 94%;
+    transform: translate(-50%,-50%);
+    visibility: hidden;
+}
+
+p#dealerCounter {
+    position: absolute;
+    left: 50%;
+    top: 3%;
+    transform: translate(-50%);
+    visibility: hidden;
+}
+
+p#playerCounter {
+    position: absolute;
+    left: 50%;
+    top: 97%;
+    transform: translate(-50%,-50%);
+    visibility: hidden;
+}
+
+p#CurrentBet {
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    font-size: 125%;
+    transform: translate(-50%, -50%);
+    color: #145BB4;
+    background-color: white;
+    visibility: hidden;
+}
+
+#Add5 {
+    position: absolute;
+    left: 45%;
+    top: 51%;
+    transform: translate(-50%, -50%);
+    /* button design*/
+    text-align: center;
+    /*font-size: 16px;*/
+    padding: 1%;
+    border: none;
+    color: white;
+    width: 8%;
+    visibility: hidden;
+}
+
+#Add10 {
+    position: absolute;
+    left: 45%;
+    top: 58%;
+    transform: translate(-50%, -50%);
+    /* button design*/
+    text-align: center;
+    /*background-color: #156025;*/
+    padding: 1%;
+    border: none;
+    color: white;
+    width: 8%;
+    visibility: hidden;
+}
+
+#Add25 {
+    position: absolute;
+    left: 45%;
+    top: 66%;
+    transform: translate(-50%, -50%);
+    /* button design*/
+    text-align: center;
+    padding: 1%;
+    border: none;
+    color: white;
+    width: 8%;
+    visibility: hidden;
+}
+
+#Add100 {
+    position: absolute;
+    left: 45%;
+    top: 74%;
+    transform: translate(-50%, -50%);
+    /* button design*/
+    text-align: center;
+    padding: 1%;
+    border: none;
+    color: white;
+    width: 8%;
+    visibility: hidden;
+}
+
+#Sub5 {
+    position: absolute;
+    left: 55%;
+    top: 51%;
+    transform: translate(-50%, -50%);
+    /* button design*/
+    text-align: center;
+    padding: 1%;
+    border: none;
+    color: white;
+    width: 8%;
+    visibility: hidden;
+}
+
+#Sub10 {
+    position: absolute;
+    left: 55%;
+    top: 58%;
+    transform: translate(-50%, -50%);
+    /* button design*/
+    text-align: center;
+    padding: 1%;
+    border: none;
+    color: white;
+    width: 8%;
+    visibility: hidden;
+}
+
+#Sub25 {
+    position: absolute;
+    left: 55%;
+    top: 66%;
+    transform: translate(-50%, -50%);
+    /* button design*/
+    text-align: center;
+    padding: 1%;
+    border: none;
+    color: white;
+    width: 8%;
+    visibility: hidden;
+}
+
+#Sub100 {
+    position: absolute;
+    left: 55%;
+    top: 74%;
+    transform: translate(-50%, -50%);
+    /* button design*/
+    text-align: center;
+    padding: 1%;
+    border: none;
+    color: white;
+    width: 8%;
+    visibility: hidden;
+}
+
+#start {
+    position: absolute;
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -50%);
+    padding: 2%;
+    width: 45%;
+}
+
+#bet {
+    position: absolute;
+    top: 80%;
+    left: 95%;
+    width: max-content;
+    visibility: hidden;
+    transform: translate(-100%, -100%);
+}
+
+#startround {
+    position: absolute;
+    left: 50%;
+    top: 44%;
+    transform: translate(-50%, -50%);
+    padding: 1%;
+    visibility: hidden;
+    width: 12%;
+}
+
+#hit {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    padding: 0%;
+    width: 10%;
+    height: 7%;
+    text-align: center;
+    vertical-align: center;
+    visibility: hidden;
+}
+
+#stay {
+    position: absolute;
+    left: 50%;
+    top: 54%;
+    transform: translate(-50%, -50%);
+    padding: 0%;
+    width: 10%;
+    height: 7%;
+    text-align: center;
+    visibility: hidden;
+}
+
+#changeBet {
+    position: absolute;
+    left: 90%;
+    top: 83%;
+    visibility: hidden;
+}
+
+#playAgain {
+    position: absolute;
+    left: 90%;
+    top: 90%;
+    visibility: hidden;
+}
+
+/*////////////////////////*/
+/*Multiplayer Version Only*/
+/*////////////////////////*/
+
+div#multicontainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: DarkGreen;
+    box-shadow: 0 0 5px 2px;
+    border: 1px solid;
+    border-radius: 5px;
+    height: 85%;
+    width: 25%;
+}
+
+img#backOfCardRework {
+    position: absolute;
+    visibility: visible;
+    width: 45%;
+    left: 50%;
+    top: 50%;
+    box-shadow: 0 0 5px 2px;
+    border: 1px solid;
+    padding: 1%;
+    transform: translate(-50%, -50%);
+}
+
+#roomID {
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    left: 50%;
+    top: 15%;
+    font-size: 125%;
+    width: 90%;
+    transform: translate(-50%, -50%);
+}
+
+#readyUp {
+    position: absolute;
+    left: 50%;
+    top: 85%;
+    padding: 1%;
+    width: 45%;
+    transform: translate(-50%, -50%);
+}
+
+#startMatch {
+    position: absolute;
+    left: 50%;
+    top: 44%;
+    transform: translate(-50%, -50%);
+    padding: 1%;
+    visibility: hidden;
+    width: 12%;
+}
+
+#viewLeaderboard {
+    position: absolute;
+    left: 5%;
+    top: 45%;
+    visibility: hidden;
+}
+
+div#leaderboardContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: DarkGreen;
+    box-shadow: 0 0 5px 2px;
+    border: 1px solid;
+    border-radius: 5px;
+    height: 85%;
+    width: 25%;
+    opacity: 95%;
+    visibility: hidden;
+}
+
+table#leaderboard {
+    width: 100%;
+    overflow: auto;
+}
+
+td{
+    color: #FFFFFF;
+    font-weight: 2px;
+    text-align: center;
+    padding: 2px;
+}
+
+th{
+    color: #FFFFFF;
+    font-weight: 2px;
+}
+
+#closeLeaderboard {
+  position: absolute;
+  left: 50%;
+  top: 85%;
+  transform: translate(-50%, -50%);
+  padding: 1%;
+  width: 45%;
+}
+
+/*////////////////////////*/
+/*Multiplayer Version Ends*/
+/*////////////////////////*/
+
+img.card {
+    position: absolute;
+    visibility: hidden;
+    width: 120px;
+}
+
+img#backofcard {
+    position: absolute;
+    visibility: visible;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%
+}
+
+img#d1 {
+    left: 45%;
+    top: 7%;
+    transform: translate(-50%);
+    visibility: hidden;
+}
+
+img#d2 {
+    left: 47%;
+    top: 9%;
+    transform: translate(-50%);
+    visibility: hidden;
+}
+
+img#d3 {
+    left: 49%;
+    top: 11%;
+    transform: translate(-50%);
+    visibility: hidden;
+}
+
+img#d4 {
+    left: 51%;
+    top: 13%;
+    transform: translate(-50%);
+    visibility: hidden;
+}
+
+img#d5 {
+    left: 53%;
+    top: 15%;
+    transform: translate(-50%);
+    visibility: hidden;
+}
+
+img#d6 {
+    left: 55%;
+    top: 17%;
+    transform: translate(-50%);
+    visibility: hidden;
+}
+
+img#c1 {
+    left: 45%;
+    transform: translate(-50%);
+    top: 63%;
+    visibility: hidden;
+}
+
+img#c2 {
+    left: 47%;
+    transform: translate(-50%);
+    top: 61%;
+    visibility: hidden;
+}
+
+img#c3 {
+    left: 49%;
+    transform: translate(-50%);
+    top: 59%;
+    visibility: hidden;
+}
+
+img#c4 {
+    left: 51%;
+    transform: translate(-50%);
+    top: 57%;
+    visibility: hidden;
+}
+
+img#c5 {
+    left: 53%;
+    transform: translate(-50%);
+    top: 55%;
+    visibility: hidden;
+}
+
+img#c6 {
+    left: 55%;
+    transform: translate(-50%);
+    top: 53%;
+    visibility: hidden;
+}
+
+p#winloss {
+    visibility: hidden;
+    top: 48%;
+    left: 50%;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    position: absolute;
+}
+
+/*Chatroom*/
+div#chatroom {
+    height: 25%;
+    margin-top: 3%;
+}
+
+ul#messages {
+    padding: 1%;
+}
+
+div#chatbox {
+    height: 85%;
+    width: 98%;
+    margin: auto;
+    border: solid;
+    border-color: #546A76;
+    overflow-y: scroll;
+    overflow-x: no-content;
+}
+
+li.msgs {
+    margin-top: 5px;
+    list-style-type: none;
+    display: block;
+    border: dotted;
+    border-color: skyblue;
+}
+
+p.wrap {
+    word-wrap: break-word;
+}
+
+form.chat {
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width: 98%;
+}
+
+input#msgin {
+    width: 80%;
+}
+
+button#sendmsg {
+    width: 19%;
+}
+
+h1#globalchatheader {
+    text-align: center;
+    font-family: 'Corbel';
+    color: saddlebrown;
+}
+
+
+/* For Phone/mobile */
+/*----------------------------------------------*/
+@media only screen and (max-width: 600px) {
+    p#CurrentBet {
+        top: 35%;
+        font-size: 155%;
+    }
+
+    p#winloss {
+        transform: translate(-50%);
+    }
+
+    div#multicontainer {
+        height: 85%;
+        width: 300px;
+    }
+
+    #Add5 {
+        left: 40%;
+        top: 57%;
+        transform: translate(-50%, -50%);
+        padding: 3%;
+        width: 15%;
+        display: inline-block;
+    }
+
+    #Add10 {
+        left: 40%;
+        top: 67%;
+        transform: translate(-50%, -50%);
+        padding: 3%;
+        width: 15%;
+        display: inline-block;
+    }
+
+    #Add25 {
+        left: 40%;
+        top: 77%;
+        transform: translate(-50%, -50%);
+        padding: 3%;
+        width: 15%;
+        display: inline-block;
+    }
+
+    #Add100 {
+        left: 40%;
+        top: 87%;
+        transform: translate(-50%, -50%);
+        padding: 3%;
+        width: 15%;
+        display: inline-block;
+    }
+
+    #Sub5 {
+        left: 60%;
+        top: 57%;
+        transform: translate(-50%, -50%);
+        padding: 3%;
+        width: 15%;
+        display: inline-block;
+    }
+
+    #Sub10 {
+        left: 60%;
+        top: 67%;
+        transform: translate(-50%, -50%);
+        padding: 3%;
+        width: 15%;
+        display: inline-block;
+    }
+
+    #Sub25 {
+        left: 60%;
+        top: 77%;
+        transform: translate(-50%, -50%);
+        padding: 3%;
+        width: 15%;
+        display: inline-block;
+    }
+
+    #Sub100 {
+        left: 60%;
+        top: 87%;
+        transform: translate(-50%, -50%);
+        padding: 3%;
+        width: 15%;
+        display: inline-block;
+    }
+
+    button#start {
+        left: 50%;
+        top: 47%;
+        transform: translate(-50%, -50%);
+        padding: 3%;
+        width: 30%;
+        display: inline-block;
+    }
+
+    #startround {
+        left: 50%;
+        top: 45%;
+        transform: translate(-50%, -50%);
+        padding: 3%;
+        width: 30%;
+        display: inline-block;
+    }
+
+    #hit {
+        left: 50%;
+        top: 45%;
+        transform: translate(-50%, -50%);
+        padding: 3%;
+        width: 30%;
+        display: inline-block;
+    }
+
+    #stay {
+        left: 50%;
+        top: 55%;
+        transform: translate(-50%, -50%);
+        padding: 3%;
+        width: 30%;
+        display: inline-block;
+    }
+
+    #bet {
+        top: 100%;
+        left: 95%;
+    }
+
+    #changeBet {
+        left: 70%;
+        top: 70%;
+        width: 30%;
+    }
+
+    #playAgain {
+        left: 70%;
+        top: 81%;
+        width: auto;
+        display: inline-block;
+    }
+
+    /*CARDS PLACEMENT MOBILE*/
+    img.card {
+        position: absolute;
+        visibility: hidden;
+        width: 80px;
+    }
+
+    img#d1 {
+        left: 40%;
+        top: 18%;
+        transform: translate(-50%);
+    }
+
+    img#d2 {
+        left: 44%;
+        top: 16%;
+        transform: translate(-50%);
+    }
+
+    img#d3 {
+        left: 48%;
+        top: 14%;
+        transform: translate(-50%);
+    }
+
+    img#d4 {
+        left: 52%;
+        top: 12%;
+        transform: translate(-50%);
+    }
+
+    img#d5 {
+        left: 56%;
+        top: 10%;
+        transform: translate(-50%);
+    }
+
+    img#d6 {
+        left: 60%;
+        top: 8%;
+        transform: translate(-50%);
+    }
+
+    img#c1 {
+        left: 40%;
+        transform: translate(-50%);
+        top: 70%;
+    }
+
+    img#c2 {
+        left: 44%;
+        transform: translate(-50%);
+        top: 68%;
+    }
+
+    img#c3 {
+        left: 48%;
+        transform: translate(-50%);
+        top: 66%;
+    }
+
+    img#c4 {
+        left: 52%;
+        transform: translate(-50%);
+        top: 64%;
+    }
+
+    img#c5 {
+        left: 56%;
+        transform: translate(-50%);
+        top: 62%;
+    }
+
+    img#c6 {
+        left: 60%;
+        transform: translate(-50%);
+        top: 60%;
+    }
+
+    /*Chat*/
+    #msgin {
+        width: 78%;
+    }
+}
+
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+}

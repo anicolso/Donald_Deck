@@ -1,0 +1,15 @@
+﻿table, th, td {
+    border: 1px solid #57A545;
+    border-collapse: collapse;
+    padding:4%;
+}
+table {
+    width: 80%;
+    margin: auto;
+}
+th {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+td {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

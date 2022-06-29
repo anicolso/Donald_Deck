@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+	  <!--<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Donald Deck - Playing Solo</title>
+    <link rel="stylesheet" href="/stylesheets/blackjack.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <script src="/javascript/soloBlackjackAnimations.js" defer ></script>
+    <script src="/javascript/sharedBlackjackAnimations.js" defer ></script>
+    <script src="/javascript/blackJackEngine.js" defer></script>
+	<script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="/images/logo_circle.png" width="50" height="50" alt="">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <form method="POST" action='/mainMenu'>
+                    <input type="hidden" name="id" value=<%= row.username %>>
+                    <input type="submit" class="btn my-2 my-sm-0" value="Main Menu"/>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form method="POST" action='/myStats'>
+                    <input type="hidden" name="id" value=<%= row.username %>>
+                    <input type="submit" class="btn my-2 my-sm-0" value="View Stats"/>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form method="POST" action='/soloBlackjack'>
+                    <input type="hidden" name="id" value=<%= row.username %>>
+                    <input type="submit" class="btn my-2 my-sm-0" value="Play Solo"/>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form method="POST" action='/multiplayerBlackjack'>
+                    <input type="hidden" name="id" value=<%= row.username %>>
+                    <input type="submit" class="btn my-2 my-sm-0" value="Create Match"/>
+                </form>
+            </li>
+            <li class="nav-item">
+                <form method="POST" action='/joinMatch'>
+                    <input type="hidden" name="id" value=<%= row.username %>>
+                    <input type="submit" class="btn my-2 my-sm-0" value="Join Match"/>
+                </form>
+            </li>
+			<li class="nav-item">
+                <form method='GET' action='/'>
+                    <input type="submit" class="btn my-2 my-sm-0" value="Logout"/>
+                </form>
+            </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="solocontainer">
+      <div id="multicontainer">
+        <img class="card" src="/images/cardback.png" alt="backofcard" id="backOfCardRework"/>
+        <button id="start" class="btn-danger"> START GAME</button>
+      </div>
+  		<input id="id" type="hidden" value=<%=row.username%>>
+
+      <p id="CurrentBet" value = "0" >Current Bet: 0</p>
+
+  		<button id="Add5" class="btn-danger" >+5</button>
+      <button id="Add10" class="btn-danger" >+10</button>
+  		<button id="Add25" class="btn-danger" >+25</button>
+  		<button id="Add100" class="btn-danger" >+100</button>
+  		<button id="Sub5" class="btn-info" >-5</button>
+      <button id="Sub10" class="btn-info" >-10</button>
+  		<button id="Sub25" class="btn-info" >-25</button>
+  		<button id="Sub100" class="btn-info" >-100</button>
+      <button id="startround" class="btn-danger">START ROUND</button>
+
+      <p id="bet">Bet: 0</p>
+  		<img class="card" src="/images/cardback.png" alt="dealer1" id = "d1"/>
+  		<img class="card" src="/images/cardback.png" alt="dealer2" id = "d2"/>
+  		<img class="card" src="/images/cardback.png" alt="dealer3" id = "d3"/>
+  		<img class="card" src="/images/cardback.png" alt="dealer4" id = "d4"/>
+  		<img class="card" src="/images/cardback.png" alt="dealer5" id = "d5"/>
+  		<img class="card" src="/images/cardback.png" alt="dealer6" id = "d6"/>
+
+  		<img class="card" src="/images/cardback.png" alt="c1" id="c1"/>
+  		<img class="card" src="/images/cardback.png" alt="c2" id="c2" />
+  		<img class="card" src="/images/cardback.png" alt="c3" id="c3"/>
+  		<img class="card" src="/images/cardback.png" alt="c4" id="c4"/>
+  		<img class="card" src="/images/cardback.png" alt="c5" id="c5"/>
+  		<img class="card" src="/images/cardback.png" alt="c6" id="c6"/>
+
+      <p id="Dealer">Dealer</p>
+    	<p id="Player">Player</p>
+      <p id="playerCounter"> 0 </p>
+  		<p id="dealerCounter"> 0 </p>
+
+  		<button id="hit" onclick = "hit()" class="btn-danger">HIT</button>
+  		<button id="stay" onclick = "dealer()" class="btn-danger">STAY</button>
+  		<button id="changeBet" class="btn-danger" onclick = "gameStateReset()">Change Bet?</button>
+  		<button id="playAgain" onclick = "gameStateReset()" class="btn-danger">Play Again</button>
+  		<p id="winloss"></p>
+    </div>
+
+    <h2 id = creditcount>You have <%=row.credits%> credits</h2>
+    <div id = "chatroom">
+  		<div id="chatbox">
+  		    <ul id = "messages"></ul>
+  		</div>
+      <form id= "chat" method="">
+        <input id="msgin" type="text" name= "msg"> </input>
+  		  <button id="sendmsg" class="btn-info">SEND</button>
+  		</form>
+    </div>
+
+  <script>
+		var socket = io();
+		//connection and sending in username
+		socket.on('connect',function(){});
+		var username = document.getElementById('id').value;
+		socket.emit('username', username);
+		var form = document.getElementById('chat');
+		//for chat
+		form.addEventListener("submit", function(event){
+			event.preventDefault();
+			var msg = document.getElementById('msgin');
+      var temp = [msg.value, 'solo'];
+			socket.emit('chat msg',temp);
+			msg.value='';
+			return false;
+		});
+		//getting chat messages from server
+		socket.on('chat msg',function(msg){
+			var messages = document.getElementById("messages");
+			var message = document.createElement("LI");
+			var text = document.createElement("P");
+			text.className = "wrap";
+			message.className = "msgs";
+			text.innerHTML = msg;
+			message.appendChild(text);
+			messages.appendChild(message);
+			document.getElementById('chatbox').scrollTop = document.getElementById('chatbox').scrollHeight;
+		});
+		//betting
+		document.getElementById('startround').addEventListener('click', function () {
+			var bet = document.getElementById("CurrentBet").value;
+			if (Number.isNaN(bet) || bet==0||bet==undefined){
+				return;
+			}
+			else{
+				//check socket.io
+				socket.emit('checkBet', bet);
+			}
+		});
+		document.getElementById('playAgain').addEventListener('click', function () {
+			var bet = document.getElementById("CurrentBet").value;
+			if (Number.isNaN(bet) || bet==0||bet==undefined){
+				return;
+			}
+			else{
+				//check socket.io
+				socket.emit('checkBet', bet);
+			}
+		});
+
+		socket.on('startGame', function(credits){
+			gameStart();
+		});
+		//payout if player wins
+		async function payout(){
+			var bet = document.getElementById("CurrentBet").value;
+			//console.log("player needs to get his money back");
+			socket.emit('payout', bet);
+		}
+		async function push(){
+			var bet = document.getElementById("CurrentBet").value;
+			bet = bet/2;
+			//console.log("push player");
+			socket.emit('payout',bet);
+		}
+		async function blackjackPayout(){
+			var bet = document.getElementById("CurrentBet").value;
+			bet = bet/2;
+			//console.log("push player");
+			socket.emit('blackjackPay',bet);
+		}
+
+		socket.on('newCredits', function(credits){
+			document.getElementById('creditcount').innerHTML = "You have " + credits + " credits";
+		});
+	</script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

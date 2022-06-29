@@ -1,0 +1,59 @@
+﻿body {
+    text-align:center;
+}
+
+h1#id {
+    margin:auto;
+}
+
+img.coin {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+p {
+    margin:auto;
+    font-size:15px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', sans-serif;
+}
+
+div.coinbox {
+    position: relative;
+    height:16em;
+    text-align:center;
+}
+
+h3 {
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: inline;
+}
+
+p#youhave {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    top: 38%;
+}
+
+p#credits {
+    position:absolute;
+    left:50%;
+    transform:translate(-50%,-50%);
+    top:66%;
+}
+
+div#rebuyPrompt {
+    position: absolute;
+    top:70%;
+    
+}
+
+div.hidden {
+    display: none;
+}
