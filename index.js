@@ -79,7 +79,7 @@ app.post('/createAccount', (req, res) => {
         console.log(createQuery);
         pool.query(createQuery, (error, result) => {
             if (error)
-                res.send('ERROR',error);
+                res.status(error).send("ERROR");
             else {
                 if (result.rowCount === 0) {
                     res.render('pages/createAccountIncorrect.ejs')
