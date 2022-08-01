@@ -66,7 +66,7 @@ app.post('/login', (req, res) => {
     });
 });
 
-app.post('/createAccount', (req, res) => {
+app.post('/createAccount.html', (req, res) => {
     var regexTest = /^[a-z0-9]+$/i;
     var createUsername = req.body.username;
     var createPassword = req.body.password;
